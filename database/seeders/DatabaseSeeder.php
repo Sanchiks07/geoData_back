@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Country::factory()->count(5)->create();
-        City::factory()->count(20)->create();
+        $countries = \App\Models\Country::factory()->count(5)->create();
+
+        \App\Models\City::factory()->count(20)->create([
+            'country_id' => $countries->random()->id,
+        ]);
     }
 }

@@ -58,8 +58,7 @@ class CountryController extends Controller
         return redirect("/countries");
     }
 
-    public function apiIndex()
-    {
-        return response()->json(\App\Models\Country::all());
+    public function apiIndex(){
+        return Country::all();
     }
 }
